@@ -15,5 +15,12 @@ select pid, name, priceUSD
 from products
 where (quantity > 208000);
 
+-- 4. Lists the names and cities of customers in Dallas
+select name, city
+from customers
+where city = 'Dallas';
+
+
+
 
 

@@ -20,11 +20,18 @@ select name, city
 from customers
 where city = 'Dallas';
 
--- 5. List the	names of agents not in New York and not in Tokyo
+-- 5. Lists the	names of agents not in New York and not in Tokyo
 select name
 from agents
 where (city <> 'New York')
 and (city <> 'Tokyo');
+
+-- 6. Lists all	data for products not in Dallas or Duluth that	cost US$1 or more
+select *
+from products
+where (city <> 'Dallas')
+and (city <> 'Duluth')
+and (priceUSD >=1);
 
 
 

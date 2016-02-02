@@ -20,7 +20,11 @@ select name, city
 from customers
 where city = 'Dallas';
 
-
+-- 5. List the	names of agents not in New York and not in Tokyo
+select name
+from agents
+where (city <> 'New York')
+and (city <> 'Tokyo');
 
 
 

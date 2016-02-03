@@ -39,5 +39,9 @@ from orders
 where (mon = 'jan')
 or (mon = 'mar');
 
-
+--8. List all data for	orders	in February less than us$500
+select *
+from orders
+where (mon = 'feb')
+and (totalUSD < 500);
 

@@ -39,9 +39,14 @@ from orders
 where (mon = 'jan')
 or (mon = 'mar');
 
---8. List all data for	orders	in February less than us$500
+--8. Lists all data for orders	in February less than us$500
 select *
 from orders
 where (mon = 'feb')
 and (totalUSD < 500);
+
+--9. Lists all	orders	from the customer whose cid is	C005
+select * 
+from orders
+where (cid = 'c005');
 

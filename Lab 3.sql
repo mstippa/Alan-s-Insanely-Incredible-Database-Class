@@ -33,5 +33,11 @@ where (city <> 'Dallas')
 and (city <> 'Duluth')
 and (priceUSD >=1);
 
+--7. Lists all data for orders	in January or March
+select *
+from orders
+where (mon = 'jan')
+or (mon = 'mar');
+
 
 

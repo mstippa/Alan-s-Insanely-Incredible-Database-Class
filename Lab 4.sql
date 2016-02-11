@@ -19,7 +19,8 @@ where pid in (select pid
 	      where cid in (select cid
                             from customers
                             where city = 'Dallas'
-                           )); 
+                           ))
+order by pid DESC;                            
 			
 	
 

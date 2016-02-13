@@ -27,9 +27,9 @@ where cid in (select cid
 	      from orders
 	      where aid <> 'a01'
 		except
-	      select 
-		
-	      
+	      select cid
+	      from orders
+	      where aid = 'a01'
 	     ); 
 
 -- 4. Gets the ids of customers who ordered both product p01 and p07 

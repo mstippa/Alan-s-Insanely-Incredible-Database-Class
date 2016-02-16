@@ -1,4 +1,4 @@
-﻿-- Morgan Stippa 2/10/15
+﻿-- Morgan Stippa 2/16/15
 -- Lab 4
 
 -- 1. Gets the cities of agents booking an order for a customer whose cid is 'c002'
@@ -23,14 +23,12 @@ order by pid desc;
 -- 3. Gets the ids and names of customers who did not place an order through agent a01                  
 select cid, name
 from customers
-where cid in (select cid
-	      from orders
-	      where aid <> 'a01'
-		except
-	      select cid
-	      from orders
-	      where aid = 'a01'
-	     ); 
+where cid not in (select cid
+		  from orders
+	          where aid = 'a01'
+		 );
+		
+	      
 
 -- 4. Gets the ids of customers who ordered both product p01 and p07 
 select cid 

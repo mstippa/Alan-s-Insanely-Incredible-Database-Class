@@ -16,3 +16,13 @@ where c.cid = o.cid
 	and c.city = 'Dallas'
 order by pid desc;
 
+-- 3. Show the names of customers who have never placed an order. Use	a subquery
+select name
+from customers
+where cid not in (select cid
+		  from orders
+		  );
+
+
+
+

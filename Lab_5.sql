@@ -11,7 +11,9 @@ where cid = 'c002';
 --    for a customer in Dallas, sorted by pid from higest to lowest. Use joins
 select pid
 from orders inner join customers on orders.cid = customers.cid
+	    inner join agents on orders.aid = agents.aid
 where customers.city = 'Dallas'
+and 
 order by pid desc;
 
 -- 3. Show the names of customers who have never placed an order. Use	a subquery
@@ -45,7 +47,7 @@ from customers
 where city in (select city 
 	       from products
 	       group by city
-	       having count(name) > 0   
+	       having count(name) >= 0   
 	       order by count(name) asc
 	       limit 1	
 	      );

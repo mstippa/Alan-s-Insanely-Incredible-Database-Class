@@ -64,9 +64,8 @@ where discount in (select discount
 		   from customers
 		   where city = 'Dallas'
 		   or city = 'London'
-		   )
-and city <> 'Dallas'
-and city <> 'London';		   
+		   );
+	   
 		    
 
 

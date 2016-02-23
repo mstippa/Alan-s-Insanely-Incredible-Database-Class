@@ -12,12 +12,15 @@ where aid in (select aid
 
 -- 2. Gets the ids of products ordered	through	any agent who takes at	least one order	from a	
 --    customer in Dallas, sorted by pid from highest to lowest.
-select pid
+select distinct pid
 from orders
-where cid in (select cid
-              from customers
-              where city = 'Dallas'
-             )
+where aid in (select aid
+	      from orders
+	      where cid in (select cid
+			    from customers
+		            where city = 'Dallas'
+			   )
+	     )
 order by pid desc;       
 
 -- 3. Gets the ids and names of customers who did not place an order through agent a01                  

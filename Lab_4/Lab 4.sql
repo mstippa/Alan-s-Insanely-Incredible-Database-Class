@@ -45,8 +45,11 @@ where pid = 'p07';
 -- 5. Gets the ids of products not ordered by any customers who placed any order through	
 --    agent a07	in pid order from highest to lowest
 select pid
-from orders
-where aid <> 'a07'
+from products
+where pid not in (select pid
+		  from orders
+		  where aid = 'a07'
+		 ) 
 order by pid desc;
 
 -- 6. Gets the name, discounts, and city for all customers who place orders through agents	

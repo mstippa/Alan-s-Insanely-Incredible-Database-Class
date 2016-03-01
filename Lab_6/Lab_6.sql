@@ -30,7 +30,7 @@ order by totalUSD desc;
 
 -- 4. Display all customer names (in alphabetical order) and their total ordered, and	
 --    nothing more. Use coalesce to avoid showing NULLs.
-select customers.name, sum(totalUSD)
+select customers.name, coalesce(sum(totalUSD), 0)
 from orders full outer join customers on orders.cid = customers.cid
 group by customers.cid
 order by customers.name asc;

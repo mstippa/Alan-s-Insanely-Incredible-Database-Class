@@ -75,31 +75,6 @@ and q1.pid=p.pid
 group by(q1.gid, p.firstname, p.lastname, g.gamedate, t.teamname, g.location)	
 order by p.lastname, g.gamedate
 
--- Field Goal Percentage Report --
-select p.firstname as "First Name", p.lastname as "Last Name",
-	avg((q1.fgmq1/q1.fgaq1)*100) as "1st Qtr Shooting %",
-	avg((q2.fgmq2/q2.fgaq2)*100) as "2nd Qtr Shooting %",
-	avg((q3.fgmq3/q3.fgaq3)*100)
-from playerstatsfirstquarter q1 inner join playerstatssecondquarter q2 on q1.gid=q2.gid
-				 inner join playerstatsthirdquarter q3 on q1.gid=q3.gid
-				 inner join playerstatsfourthquarter q4 on q1.gid=q4.gid,
-players p
-where p.pid=q1.pid
-and q1.pid=q2.pid
-and q1.pid=q3.pid
-and q1.pid=q4.pid				 	
-group by(p.firstname,p.lastname)
-
-select 	* 
-from playerstatsfirstquarter q1 inner join playerstatssecondquarter q2 on q1.gid=q2.gid
-				 inner join playerstatsthirdquarter q3 on q1.gid=q3.gid
-				 inner join playerstatsfourthquarter q4 on q1.gid=q4.gid,
-players p	
-where p.pid=q1.pid
-and q1.pid=q2.pid
-and q1.pid=q3.pid
-and q1.pid=q4.pid	
-
 -- Stored Procedure Playoff Games --
 create or replace function NumberOfPlayoffGames(firstname text, lastname text, refcursor) returns refcursor as
 $$
